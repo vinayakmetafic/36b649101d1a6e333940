@@ -122,6 +122,8 @@ export default class Main extends Component {
           this.singlePost()
         ) : (
           <FlatList
+            onEndReached={this.loadMore()}
+            onEndReachedThreshold={0.5}
             data={this.state.data}
             keyExtractor={(item, index) => index.toString()}
             renderItem={(data) => this.renderItem(data)}
